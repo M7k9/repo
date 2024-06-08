@@ -1,0 +1,5 @@
+com\m7k\otp\Entity\MyUser.class
+com\m7k\otp\Service\OtpService.class
+com\m7k\otp\Service\UserService.class
+com\m7k\otp\OtpApplication.class
+com\m7k\otp\Repository\UserRepository.class

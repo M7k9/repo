@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Success</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <head>
+        <meta charset="utf-8">
+        <title>Success</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .container {
+                max-width: 600px;
+
+                padding: 40px;
+
+                background-color: #fff;
+                border-radius: 10px;
+
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+                text-align: center;
+            }
+
+            h2 {
+                color: #28a745;
+                margin-bottom: 30px;
+                /* Increased margin */
+                font-size: 2.5em;
+
+            }
+
+            p {
+                color: #333;
+                font-size: 1.5em;
+
+            }
+
+            .container::before {
+                content: '🎉';
+                font-size: 3em;
+                display: block;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+
+
+
+<body>
+    <div class="container">
+        <h2>Success</h2>
+        <p>OTP is valid. Your registration is complete.</p>
+    </div>
+</body>
+
+</html>
