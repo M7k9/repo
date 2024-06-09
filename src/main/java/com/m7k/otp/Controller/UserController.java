@@ -38,10 +38,10 @@ public class UserController {
     public String submitForm(@ModelAttribute MyUser myUser) {
         MyUser savedUser = userService.createUser(myUser);
         String otp = otpService.generateOtp(savedUser.getId());
-        emailService.sendOtpEmail(myUser.getEmail(), otp);
+        emailService.SendOtpEmail(myUser.getEmail(), otp);
 
         return "redirect:/api/user/validate?id=" + savedUser.getId();
-       
+        
     }
 
     @GetMapping("/validate")
