@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,7 +51,7 @@ public class UserController {
     }
 
     @PostMapping("/validate")
-    public String validateOtp(@RequestParam Long id, @RequestBody String otp, Model model) {
+    public String validateOtp(@RequestParam Long id, @RequestParam String otp, Model model) {
         boolean isValid = otpService.validateOtp(id, otp);
         if (isValid) {
             model.addAttribute("message", "OTP is valid.");
