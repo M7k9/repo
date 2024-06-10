@@ -1,2 +1,5 @@
+com\m7k\otp\config\Config.class
+com\m7k\otp\config\JwtAuthenticationFilter.class
 com\m7k\otp\Controller\ControllerTwo.class
 com\m7k\otp\Service\EmailService.class
+com\m7k\otp\config\SecurityConfiguration.class

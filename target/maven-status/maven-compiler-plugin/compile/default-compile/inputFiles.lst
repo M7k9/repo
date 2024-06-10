@@ -1,9 +1,13 @@
+C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\config\Config.java
+C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\config\JwtAuthenticationFilter.java
+C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\config\SecurityConfiguration.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Controller\ControllerTwo.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Controller\UserController.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Entity\MyUser.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\OtpApplication.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Repository\UserRepository.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Service\EmailService.java
+C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Service\JwtService.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Service\OtpService.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Service\RealEmailService.java
 C:\Dev\SpringBoot\otp\src\main\java\com\m7k\otp\Service\UserService.java

@@ -29,30 +29,33 @@ public class SecurityConfiguration {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
+    //TODO Explain csrf
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                //TODO Explain csrf
-                .csrf(Customizer.withDefaults())
-                .authorizeHttpRequests(Customizer.withDefaults())
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        return http.build();
+
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest()
+                        .permitAll() // Allowing unauthenticated access to "/api/user/register"
+
+
+                )
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Configuring stateless session management
+                )
+
+                        .authenticationProvider(authenticationProvider)
+                        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                        return http.build();
+
     }
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of("http://localhost:8085"));
+        configuration.setAllowedOrigins(List.of("http://localhost:8085/**"));
         configuration.setAllowedMethods(List.of("GET","POST"));
         configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
 
