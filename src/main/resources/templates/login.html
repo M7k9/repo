@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 450px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+
+            input[type="email"],
+            input[type="password"],
+            button[type="submit"] {
+                font-size: 14px;
+            }
+        }
+
+        .oauth-links {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .oauth-links a {
+            display: block;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .oauth-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>login Up</h2>
+        <form th:action="@{/api/auth/login}" method="post" th:object="${user}">
+            <div>
+                <label for="username">Email</label>
+                <input type="email" id="username" name="email" th:field="*{email}" required />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" th:field="*{password}" required />
+            </div>
+            <div>
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="oauth-links">
+            <a href="/oauth2/authorization/github">Login with GitHub</a>
+        </div>
+    </div>
+</body>
+
+</html>

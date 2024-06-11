@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.m7k.otp.Entity.MyUser;
@@ -15,7 +14,7 @@ import com.m7k.otp.Service.OtpService;
 import com.m7k.otp.Service.UserService;
 
 @Controller
-@RequestMapping("api/user")
+@RequestMapping("api/auth")
 public class UserController {
 
     private final UserService userService;
@@ -28,20 +27,19 @@ public class UserController {
         this.emailService = emailService;
     }
 
-    @GetMapping("/register")
+    @GetMapping("/login")
     public String showForm(Model model) {
         model.addAttribute("user", new MyUser());
-        return "register";
+        return "login";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/login")
     public String submitForm(@ModelAttribute MyUser myUser) {
         MyUser savedUser = userService.createUser(myUser);
         String otp = otpService.generateOtp(savedUser.getId());
         emailService.SendOtpEmail(myUser.getEmail(), otp);
 
-        return "redirect:/api/user/validate?id=" + savedUser.getId();
-        
+        return "redirect:/api/auth/validate?id=" + savedUser.getId();
     }
 
     @GetMapping("/validate")
@@ -61,12 +59,7 @@ public class UserController {
             model.addAttribute("id", id);
             return "validate";
         }
-    }
 
-    @RequestMapping(value = "/**", method = {RequestMethod.GET, RequestMethod.POST})
-    public String redirectToRegister() {
-
-        return "redirect:/api/user/register";
     }
 
 }
